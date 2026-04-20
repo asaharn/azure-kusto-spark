@@ -18,7 +18,7 @@
 				"spark.dynamicAllocation.enabled": "false",
 				"spark.dynamicAllocation.minExecutors": "2",
 				"spark.dynamicAllocation.maxExecutors": "2",
-				"spark.autotune.trackingId": "5c0e3b2f-7659-4389-9bb2-9fceeeb57d1f"
+				"spark.autotune.trackingId": "e010cd0e-e2b1-42bd-8e3c-8c233bb62fa9"
 			}
 		},
 		"metadata": {
@@ -267,7 +267,7 @@
 					"txnq = dfTestDataStreaming.writeStream \\\n",
 					"    .format(\"com.microsoft.kusto.spark.synapse.datasink.KustoSynapseSinkProvider\") \\\n",
 					"    .option(\"kustoCluster\", \"https://trd-xpcatctn3kywv8j03a.z4.kusto.fabric.microsoft.com\") \\\n",
-					"    .option(\"kustoDatabase\", \"Sample\") \\\n",
+					"    .option(\"kustoDatabase\", \"FluentBit\") \\\n",
 					"    .option(\"authToken\",access_token) \\\n",
 					"    .option(\"kustoTable\", \"StreamIngestTest33Transactional\") \\\n",
 					"    .option(\"tableCreateOptions\",\"CreateIfNotExist\") \\\n",
@@ -294,7 +294,7 @@
 					"queuedq = dfTestDataStreaming.writeStream \\\n",
 					"    .format(\"com.microsoft.kusto.spark.synapse.datasink.KustoSynapseSinkProvider\") \\\n",
 					"    .option(\"kustoCluster\", \"https://trd-xpcatctn3kywv8j03a.z4.kusto.fabric.microsoft.com\") \\\n",
-					"    .option(\"kustoDatabase\", \"Sample\") \\\n",
+					"    .option(\"kustoDatabase\", \"FluentBit\") \\\n",
 					"    .option(\"authToken\",access_token) \\\n",
 					"    .option(\"kustoTable\", \"StreamIngestTest33Queued\") \\\n",
 					"    .option(\"writeMode\", \"Queued\") \\\n",
@@ -328,7 +328,7 @@
 					"transactionalModeCount  = spark.read \\\n",
 					"    .format(\"com.microsoft.kusto.spark.synapse.datasource\") \\\n",
 					"    .option(\"kustoCluster\", \"https://trd-xpcatctn3kywv8j03a.z4.kusto.fabric.microsoft.com\") \\\n",
-					"    .option(\"kustoDatabase\", \"Sample\") \\\n",
+					"    .option(\"kustoDatabase\", \"FluentBit\") \\\n",
 					"    .option(\"authToken\",access_token) \\\n",
 					"    .option(\"kustoQuery\", \"StreamIngestTest33Transactional | project DiffSecs = datetime_diff('second',ingestion_time(),todatetime(event_ts)) | summarize  count(),min(DiffSecs),max(DiffSecs),avg(DiffSecs)\") \\\n",
 					"    .load()\n",
@@ -361,7 +361,7 @@
 					"queuedModeCount  = spark.read \\\n",
 					"    .format(\"com.microsoft.kusto.spark.synapse.datasource\") \\\n",
 					"    .option(\"kustoCluster\", \"https://trd-xpcatctn3kywv8j03a.z4.kusto.fabric.microsoft.com\") \\\n",
-					"    .option(\"kustoDatabase\", \"Sample\") \\\n",
+					"    .option(\"kustoDatabase\", \"FluentBit\") \\\n",
 					"    .option(\"authToken\",access_token) \\\n",
 					"    .option(\"kustoQuery\", \"StreamIngestTest33Transactional | project DiffSecs = datetime_diff('second',ingestion_time(),todatetime(event_ts)) | summarize  count(),min(DiffSecs),max(DiffSecs),avg(DiffSecs)\") \\\n",
 					"    .load()\n",
@@ -394,7 +394,7 @@
 					"functionModeCount  = spark.read \\\n",
 					"    .format(\"com.microsoft.kusto.spark.synapse.datasource\") \\\n",
 					"    .option(\"kustoCluster\", \"https://trd-xpcatctn3kywv8j03a.z4.kusto.fabric.microsoft.com\") \\\n",
-					"    .option(\"kustoDatabase\", \"Sample\") \\\n",
+					"    .option(\"kustoDatabase\", \"FluentBit\") \\\n",
 					"    .option(\"authToken\",access_token) \\\n",
 					"    .option(\"kustoQuery\", \"SparkTableIngestStats('StreamIngestTest33Queued')\") \\\n",
 					"    .load()\n",
