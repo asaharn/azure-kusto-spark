@@ -4,7 +4,7 @@
 		"nbformat": 4,
 		"nbformat_minor": 2,
 		"bigDataPool": {
-			"referenceName": "spark35",
+			"referenceName": "spark34rev",
 			"type": "BigDataPoolReference"
 		},
 		"sessionProperties": {
@@ -18,30 +18,33 @@
 				"spark.dynamicAllocation.enabled": "false",
 				"spark.dynamicAllocation.minExecutors": "2",
 				"spark.dynamicAllocation.maxExecutors": "2",
-				"spark.autotune.trackingId": "ea7e51f7-8c1a-4ee3-8920-84698468b33b"
+				"spark.autotune.trackingId": "fb2143e1-ef1e-461b-baac-ec8eabec9789"
 			}
 		},
 		"metadata": {
 			"saveOutput": true,
 			"enableDebugMode": false,
+			"kernelspec": {
+				"name": "synapse_pyspark",
+				"display_name": "Synapse PySpark"
+			},
 			"language_info": {
 				"name": "python"
 			},
 			"a365ComputeOptions": {
-				"id": "/subscriptions/216ca57c-8613-4c54-8960-1e5821b6dc8d/resourceGroups/SDK_E2E_TEST/providers/Microsoft.Synapse/workspaces/sdktestssynapse3/bigDataPools/spark35",
-				"name": "spark35",
+				"id": "/subscriptions/216ca57c-8613-4c54-8960-1e5821b6dc8d/resourceGroups/SDK_E2E_TEST/providers/Microsoft.Synapse/workspaces/sdktestssynapse3/bigDataPools/spark34rev",
+				"name": "spark34rev",
 				"type": "Spark",
-				"endpoint": "https://sdktestssynapse3.dev.azuresynapse-test.azure.net/livyApi/versions/2019-11-01-preview/sparkPools/spark35",
+				"endpoint": "https://sdktestssynapse3.dev.azuresynapse-test.azure.net/livyApi/versions/2019-11-01-preview/sparkPools/spark34rev",
 				"auth": {
 					"type": "AAD",
-					"authResource": "https://dev.azuresynapse.net",
-					"authHeader": null
+					"authResource": "https://dev.azuresynapse.net"
 				},
-				"sparkVersion": "3.5",
+				"sparkVersion": "3.4",
 				"nodeCount": 10,
 				"cores": 8,
 				"memory": 56,
-				"extraHeader": null
+				"automaticScaleJobs": false
 			},
 			"sessionKeepAliveTimeout": 30
 		},
@@ -168,7 +171,7 @@
 					"%%pyspark\n",
 					"kustoDf  = spark.read \\\n",
 					"    .format(\"com.microsoft.kusto.spark.synapse.datasource\") \\\n",
-					"    .option(\"kustoCluster\", \"https://trd-vexwkpzbtytkmux6tr.z4.kusto.fabric.microsoft.com\") \\\n",
+					"    .option(\"kustoCluster\", \"https://trd-xpcatctn3kywv8j03a.z4.kusto.fabric.microsoft.com\") \\\n",
 					"    .option(\"kustoDatabase\", \"OrderDetails\") \\\n",
 					"    .option(\"authToken\",access_token) \\\n",
 					"    .option(\"kustoQuery\", \"AllDataTypesTransactionalSpark33\t | take 10\") \\\n",
@@ -217,7 +220,7 @@
 					"\n",
 					"kustoDfDistributed  = spark.read \\\n",
 					"    .format(\"com.microsoft.kusto.spark.synapse.datasource\") \\\n",
-					"    .option(\"kustoCluster\", \"https://trd-vexwkpzbtytkmux6tr.z4.kusto.fabric.microsoft.com\") \\\n",
+					"    .option(\"kustoCluster\", \"https://trd-xpcatctn3kywv8j03a.z4.kusto.fabric.microsoft.com\") \\\n",
 					"    .option(\"kustoDatabase\", \"OrderDetails\") \\\n",
 					"    .option(\"authToken\",access_token) \\\n",
 					"    .option(\"kustoQuery\", \"AllDataTypesTransactionalSpark33 | take 10000\") \\\n",
@@ -274,7 +277,7 @@
 					"\n",
 					"allTypesDf.write.format(\"com.microsoft.kusto.spark.synapse.datasource\")\n",
 					".option(\"kustoTable\", \"AllDataTypesTransactionalSpark33\")\n",
-					".option(\"kustoCluster\", \"https://trd-vexwkpzbtytkmux6tr.z4.kusto.fabric.microsoft.com\")\n",
+					".option(\"kustoCluster\", \"https://trd-xpcatctn3kywv8j03a.z4.kusto.fabric.microsoft.com\")\n",
 					".option(\"kustoDatabase\", \"OrderDetails\")\n",
 					".option(\"tableCreateOptions\",\"CreateIfNotExist\")\n",
 					".option(\"authToken\",accessToken)\n",
@@ -317,7 +320,7 @@
 					"allTypesDf.write.format(\"com.microsoft.kusto.spark.synapse.datasource\") \n",
 					".option(\"writeMode\",\"Queued\")\n",
 					".option(\"kustoTable\", \"AllDataTypesQueuedSpark33\")\n",
-					".option(\"kustoCluster\", \"https://trd-vexwkpzbtytkmux6tr.z4.kusto.fabric.microsoft.com\")\n",
+					".option(\"kustoCluster\", \"https://trd-xpcatctn3kywv8j03a.z4.kusto.fabric.microsoft.com\")\n",
 					".option(\"kustoDatabase\", \"OrderDetails\")\n",
 					".option(\"tableCreateOptions\",\"CreateIfNotExist\")\n",
 					".option(\"authToken\",accessToken)\n",
@@ -350,7 +353,7 @@
 					"# Full Sample Code available at: https://github.com/Azure/azure-kusto-spark/blob/master/samples/src/main/python/SynapseSample.py\n",
 					"kustoDfAllTypes  = spark.read \\\n",
 					"    .format(\"com.microsoft.kusto.spark.synapse.datasource\") \\\n",
-					"    .option(\"kustoCluster\", \"https://trd-vexwkpzbtytkmux6tr.z4.kusto.fabric.microsoft.com\") \\\n",
+					"    .option(\"kustoCluster\", \"https://trd-xpcatctn3kywv8j03a.z4.kusto.fabric.microsoft.com\") \\\n",
 					"    .option(\"kustoDatabase\", \"OrderDetails\") \\\n",
 					"    .option(\"authToken\",access_token) \\\n",
 					"    .option(\"kustoQuery\", \"AllDataTypesTransactionalSpark33 | take 100\") \\\n",
@@ -385,7 +388,7 @@
 					"# Full Sample Code available at: https://github.com/Azure/azure-kusto-spark/blob/master/samples/src/main/python/SynapseSample.py\n",
 					"transactionalModeCount  = spark.read \\\n",
 					"    .format(\"com.microsoft.kusto.spark.synapse.datasource\") \\\n",
-					"    .option(\"kustoCluster\", \"https://trd-vexwkpzbtytkmux6tr.z4.kusto.fabric.microsoft.com\") \\\n",
+					"    .option(\"kustoCluster\", \"https://trd-xpcatctn3kywv8j03a.z4.kusto.fabric.microsoft.com\") \\\n",
 					"    .option(\"authToken\",access_token) \\\n",
 					"    .option(\"kustoDatabase\", \"OrderDetails\") \\\n",
 					"    .option(\"kustoQuery\", \"AllDataTypesTransactionalSpark33 | project DiffSecs = datetime_diff('second',ingestion_time(),todatetime(DateTimeType)) | summarize  count(),min(DiffSecs),max(DiffSecs),avg(DiffSecs)\") \\\n",
@@ -443,7 +446,7 @@
 					"# Full Sample Code available at: https://github.com/Azure/azure-kusto-spark/blob/master/samples/src/main/python/SynapseSample.py\n",
 					"queuedModeCount  = spark.read \\\n",
 					"    .format(\"com.microsoft.kusto.spark.synapse.datasource\") \\\n",
-					"    .option(\"kustoCluster\", \"https://trd-vexwkpzbtytkmux6tr.z4.kusto.fabric.microsoft.com\") \\\n",
+					"    .option(\"kustoCluster\", \"https://trd-xpcatctn3kywv8j03a.z4.kusto.fabric.microsoft.com\") \\\n",
 					"    .option(\"authToken\",access_token) \\\n",
 					"    .option(\"kustoDatabase\", \"OrderDetails\") \\\n",
 					"    .option(\"kustoQuery\", \"AllDataTypesQueuedSpark33 | project DiffSecs = datetime_diff('second',ingestion_time(),todatetime(DateTimeType)) | summarize  count(),min(DiffSecs),max(DiffSecs),avg(DiffSecs)\") \\\n",
